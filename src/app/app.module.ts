@@ -21,6 +21,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
+import { AuthGuard as AuthGuard } from './auth-guard.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -56,7 +57,10 @@ const firebaseConfig = {
     AngularFireStorageModule, NgbModule // storage
 
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService, 
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
