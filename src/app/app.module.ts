@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
 import { AuthGuard as AuthGuard } from './auth-guard.service';
 import { UserService } from './user.service';
+import { AdminAuthGuard } from './admin-auth-guard.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -61,7 +62,8 @@ const firebaseConfig = {
   providers: [
     AuthService, 
     AuthGuard,
-    UserService
+    UserService,
+    AdminAuthGuard,
   ],
   bootstrap: [AppComponent]
 })
