@@ -24,6 +24,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard as AuthGuard } from './auth-guard.service';
 import { UserService } from './user.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -48,7 +49,8 @@ const firebaseConfig = {
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
