@@ -28,6 +28,7 @@ import { AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
+import { CustomFormsModule } from 'ng2-validation';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -62,7 +63,8 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule, NgbModule // storage
+    AngularFireStorageModule, NgbModule ,// storage
+    CustomFormsModule,
 
   ],
   providers: [
