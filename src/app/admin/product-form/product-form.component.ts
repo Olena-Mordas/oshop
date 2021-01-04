@@ -25,7 +25,7 @@ export class ProductFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.categories$ = this.categoryService.getCategories();
+    this.categories$ = this.categoryService.getAll();
     this.id  = this.route.snapshot.paramMap.get('id');
     if(this.id) this.productService.get(this.id).pipe(take(1)).subscribe(res=>this.product = res);
   }
