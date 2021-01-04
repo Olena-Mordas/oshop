@@ -29,6 +29,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ng2-validation';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -54,7 +56,9 @@ const firebaseConfig = {
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
