@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shopping-cart.service';
 
@@ -17,8 +18,12 @@ export class ProductCardComponent{
   ngOnInit(): void {
   }
 
-  addToCart(product){
-    this.cartService.addToCart(product);
+  addToCart(){
+    this.cartService.addToCart(this.product);
+  }
+
+  removeFromCart(){
+    this.cartService.removeFromCart(this.product);
   }
 
   getQuantity(){
