@@ -6,7 +6,8 @@
         <h5 class="card-title">{{product.payload.val().title}}</h5>
         <p class="card-text">{{product.payload.val().price | currency :'USD':true}}</p> 
     </div>
-    <div class="crad-footer">
-        <button (click)="addToCart(product)" *ngIf="showActions" class="btn btn-primary btn-block"> Add to cart </button>
+    <div *ngIf="showActions" class="crad-footer">
+        <button (click)="addToCart(product)" class="btn btn-primary btn-block"> Add to cart </button>
+        <div>{{ getQuantity() }}</div>
     </div>
 </div>
