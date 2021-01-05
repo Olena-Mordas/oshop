@@ -31,6 +31,7 @@ import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ng2-validation';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -77,7 +78,8 @@ const firebaseConfig = {
     UserService,
     AdminAuthGuard,
     CategoryService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })

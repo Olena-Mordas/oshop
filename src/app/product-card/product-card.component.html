@@ -7,6 +7,6 @@
         <p class="card-text">{{product.payload.val().price | currency :'USD':true}}</p> 
     </div>
     <div class="crad-footer">
-        <a href="#" *ngIf="showActions" class="btn btn-primary btn-block"> Add to cart </a>
+        <button (click)="addToCart(product)" *ngIf="showActions" class="btn btn-primary btn-block"> Add to cart </button>
     </div>
 </div>
