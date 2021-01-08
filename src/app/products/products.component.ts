@@ -40,10 +40,10 @@ export class ProductsComponent implements OnInit, OnDestroy{
         })      
   }
 
-  ngOnInit() {
-    this.shoppingCartService.getCart().then(res=>{
-      this.cartSubscription = res.subscribe(cart=>this.cart=cart.payload.val())
-    });
+  async ngOnInit() {
+    let cart$ = await this.shoppingCartService.getCart();
+    this.cartSubscription = cart$.subscribe(cart=>this.cart=cart);
+    
   }
 
   ngOnDestroy(){

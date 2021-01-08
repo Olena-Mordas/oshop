@@ -1,4 +1,4 @@
-export interface SHoppingCartItem{
+export interface ShoppingCartItem{
     product: {},
     quantity: number
 }
