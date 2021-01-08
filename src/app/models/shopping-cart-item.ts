@@ -1,6 +1,12 @@
 export class ShoppingCartItem{
 
-    constructor(public product, public quantity:number){ }
+    title: string;
+    imageUrl:string;
+    price: number;
+    key:string;
+    quantity: number;
 
-    get totalPrice(){return this.product.price* this.quantity}
+    //constructor(public product, public quantity:number){ }
+
+    get totalPrice(){return this.price* this.quantity}
 }
