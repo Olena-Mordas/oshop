@@ -30,4 +30,9 @@ export class ShoppingCart{
         return sum;
         
     }
+
+    getQuantity(product){
+        let item=this.itemsMap[product.key];
+        return item? item.quantity : 0;
+      }
 }
