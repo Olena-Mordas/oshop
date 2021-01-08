@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { ShoppingCart } from './models/shopping-cart';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class ShoppingCartService {
     });
   }
 
-  async getCart() {
+  async getCart(){
     let cartId = await this.getOrCreateCartId()
     return this.db.object('/shopping-carts/' + cartId).snapshotChanges();
   }
