@@ -11,4 +11,8 @@ export class ShoppingCart{
             count += this['items'][productId].quantity;
         return count;
     }
+
+    get productIds(){
+        return Object.keys(this.items);
+    }
 }
