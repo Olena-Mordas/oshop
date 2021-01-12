@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { switchMap } from 'rxjs/operators';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { Subscription } from 'rxjs';
+import { Product} from '../models/product';
 
 @Component({
   selector: 'app-products',
@@ -26,8 +27,11 @@ export class ProductsComponent implements OnInit, OnDestroy{
     productService.getAll().pipe(
       switchMap(
         products=>{
-          this.products=products;
-          
+          for (let p of products){
+            let productValue = p.payload.val() as Product;
+            this.products.push(new Product({...productValue, key:p.key}))
+          }
+        
           return route.queryParamMap;  
         }))
         .subscribe(params =>{
