@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Order } from 'src/app/models/order';
+import { OrderService } from 'src/app/order.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-admin-orders',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminOrdersComponent implements OnInit {
 
-  constructor() { }
+  orders$;
 
-  ngOnInit(): void {
+  constructor(
+    private orderService: OrderService,
+    private userService: UserService) { }
+
+  ngOnInit() {
+    this.orders$ = this.orderService.getAll();
   }
 
 }

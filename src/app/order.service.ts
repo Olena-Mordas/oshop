@@ -13,4 +13,8 @@ export class OrderService {
     this.cartService.clearCart();
     return this.db.list('/orders').push(order);
   }
+
+  getAll(){
+    return this.db.list('/orders').valueChanges();
+  }
 }
