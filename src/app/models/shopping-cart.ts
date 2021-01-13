@@ -5,7 +5,7 @@ export class ShoppingCart{
     dateCreated: number;
     items: ShoppingCartItem[] = [];
 
-    constructor(private itemsMap: {[productId:string]: ShoppingCartItem}){
+    constructor(private itemsMap?: {[productId:string]: ShoppingCartItem}){
         for (let productId in itemsMap){
             let item = itemsMap[productId];
             this.items.push(new ShoppingCartItem({...item, key: productId}));

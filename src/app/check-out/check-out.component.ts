@@ -14,7 +14,7 @@ import { ShoppingCartService } from '../shopping-cart.service';
 })
 export class CheckOutComponent implements OnInit, OnDestroy{
   shipping :any = {}; 
-  cart: ShoppingCart;
+  cart: ShoppingCart = new ShoppingCart();
   userId: string;
   cartSubscription: Subscription;
   userSubscription: Subscription;
@@ -35,7 +35,7 @@ export class CheckOutComponent implements OnInit, OnDestroy{
 
   async placeOrder() {
     let order = new Order(this.userId, this.shipping, this.cart);
-    let res  =  await this.orderService.storeOrder(order);
+    let res  =  await this.orderService.placeOrder(order);
     this.router.navigate(['/order-success', res.key]);
   }    
 
