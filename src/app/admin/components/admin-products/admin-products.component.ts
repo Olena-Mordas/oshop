@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Product } from 'shared/models/product';
 import { ProductService } from 'shared/services/product.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ProductService } from 'shared/services/product.service';
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
 
-  products;
+  products:Product[]=[];
   filteredProducts;
   subscription: Subscription;
 
@@ -17,12 +18,20 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.productService.getAll()
-    .subscribe(resp=>this.filteredProducts = this.products=resp);
+    .subscribe(products=>this.initProducts(products));
+  }
+
+  private initProducts(products){
+    for (let p of products) {
+      let productValue = p.payload.val() as Product;
+      this.products.push(new Product({ ...productValue, key: p.key }))
+    }
+    this.filteredProducts=this.products;
   }
 
   filter(query:string){
     this.filteredProducts = (query) ?
-      this.products.filter(p => p.payload.val().title.toLowerCase().includes(query.toLowerCase())) : 
+      this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : 
       this.products;
   }
 
