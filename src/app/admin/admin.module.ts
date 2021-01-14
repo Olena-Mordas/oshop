@@ -40,8 +40,6 @@ const routes: Routes = [
     AdminOrdersComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     SharedModule,
     RouterModule.forChild(routes)
   ],

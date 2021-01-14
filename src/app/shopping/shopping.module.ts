@@ -34,8 +34,6 @@ const routes: Routes = [
     ShippingFormComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]

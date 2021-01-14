@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CustomFormsModule } from 'ng2-validation';
 import { SharedModule } from 'shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,19 +24,13 @@ const firebaseConfig = {
     AppComponent,
   ],
   imports: [
-    CoreModule,
     SharedModule,
+    CoreModule, 
     AdminModule,
     ShoppingModule,
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AngularFireStorageModule, NgbModule ,// storage
-    CustomFormsModule,
-
   ],
   bootstrap: [AppComponent]
 })
