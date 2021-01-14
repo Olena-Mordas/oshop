@@ -1,41 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { CheckOutComponent } from './check-out/check-out.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from 'shared/services/auth.service';
-import { AuthGuard as AuthGuard } from 'shared/services/auth-guard.service';
-import { UserService } from 'shared/services/user.service';
-import { AdminAuthGuard } from './admin-auth-guard.service';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { CategoryService } from 'shared/services/category.service';
-import { ProductService } from 'shared/services/product.service';
 import { CustomFormsModule } from 'ng2-validation';
+import { SharedModule } from 'shared/shared.module';
+import { AdminModule } from './admin/admin.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
-import { ProductCardComponent } from 'shared/components/product-card/product-card.component';
-import { ShoppingCartService } from 'shared/services/shopping-cart.service';
-import { ProductQuantityComponent } from 'shared/components/product-quantity/product-quantity.component';
-import { OrderService } from 'shared/services/order.service';
-import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ProductsComponent } from './products/products.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4Eco99lL-bIWwGAr75Y7_hqBdCj7SLEI",
@@ -58,17 +44,14 @@ const firebaseConfig = {
     CheckOutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent,
-    ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent
   ],
   imports: [
+    SharedModule,
+    AdminModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -78,16 +61,6 @@ const firebaseConfig = {
     AngularFireStorageModule, NgbModule ,// storage
     CustomFormsModule,
 
-  ],
-  providers: [
-    AuthService, 
-    AuthGuard,
-    UserService,
-    AdminAuthGuard,
-    CategoryService,
-    ProductService,
-    ShoppingCartService,
-    OrderService
   ],
   bootstrap: [AppComponent]
 })
